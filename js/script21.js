@@ -99,7 +99,7 @@
 // Продвинутый уровень
 
 
-// Задача 1.-
+// Задача 1.+
 // Написать функцию конструктор Student
 // В каждом объекте студента должны быть поля salary , rate , name
 // Внутри объекта также должен быть метод который на основе рейтинга возвращает сумму возможного кредита.
@@ -112,33 +112,74 @@
 // C - неплохой рейтинг и мы можем дать человеку кредит как 6 его зарплат
 // D - плохой рейтинг и мы не можем дать кредит
 
-// function Student(name, salary, rate) {
-//   this.salary = salary;
-//   this.rate = rate;
-//   this.name = name;
-
-//   function sumCredit() {
-//     if (rate = "A"){
-//     return sumCredit = 12 * salary
-//   }
-//   if (rate = "B"){
-//     return sumCredit = 9 * salary
-//   }
-//   if (rate = "C"){
-//     return sumCredit = 6 * salary
-//   }
-//   if (rate = "D"){
-//     return sumCredit = 0 * salary
-//   }
-// console.log(sumCredit);
-// }}
-
-// let user = new Student("Сергей", 10000, "A");
-// // let user = new Student("Андрей", 9000, "B");
-// // new Student("Глеб", 11000, "A");
-// // new Student("Антон", 7000, "D");
-// // new Student("Виктория", 7500, "С");
-// console.log(user);
+// const creditSummCondition = (salary, rate) => {
+//     if (rate === "A") {
+//       return salary * 12;
+//     }
+//     if (rate === "B") {
+//       return salary * 9;
+//     }
+//     if (rate === "C") {
+//       return salary * 6;
+//     }
+//     if (rate === "D") {
+//       return salary * 0;
+//     }
+//   };
+  
+//   let students = [
+//     {
+//       salary: 1000,
+//       rate: "A",
+//       name: "Victorya",
+//       creditSumm() {
+//         return creditSummCondition(this.salary, this.rate);
+//       },
+//     },
+//     {
+//       salary: 1500,
+//       rate: "B",
+//       name: "Anton",
+//       creditSumm() {
+//         return creditSummCondition(this.salary, this.rate);
+//       },
+//     },
+//     {
+//       salary: 800,
+//       rate: "C",
+//       name: "Evgen",
+//       creditSumm() {
+//         return creditSummCondition(this.salary, this.rate);
+//       },
+//     },
+//     {
+//       salary: 2000,
+//       rate: "D",
+//       name: "Maxim",
+//       creditSumm() {
+//         return creditSummCondition(this.salary, this.rate);
+//       },
+//     },
+//     {
+//       salary: 1200,
+//       rate: "A",
+//       name: "Sergey",
+//       creditSumm() {
+//         return creditSummCondition(this.salary, this.rate);
+//       },
+//     },
+//   ];
+  
+//   const student = (studentsArr) => {
+  
+//       let total = 0;
+//       for (let i = 0; i < studentsArr.length; i++) {
+//         total += studentsArr[i].creditSumm();
+//       }
+//     console.log(total, "total");
+//   };
+//   student(students);
+  
 
 
 // Задача 2.+
@@ -200,7 +241,7 @@
 
 
 
-// Задача 5.+-
+// Задача 5.+
 // Изограммы
 // Изограмма - это слово, в котором нет повторяющихся букв, последовательных или непоследовательных. Реализуйте функцию, которая определяет, является ли строка, содержащая только буквы, изограммой. Предположим, что пустая строка является изограммой. Регистр букв мы игнорируем.
 // isIsogram("Dermatoglyphics") == true
@@ -209,19 +250,33 @@
 
 // let isIsogram = (str) => (str.toLowerCase().split("").every((c, i) => str.indexOf(c) == i));
 
-// console.log(isIsogram("moOse"));
+// console.log(isIsogram("aba"));
 
 
-// Задача 6.-
+// Задача 6.+
 // Считаем коды символов
 // Учитывая строку, превратите каждый символ в его код символа ASCII и соедините их вместе, чтобы создать число. Поместите результат в переменную total1 .
 // Затем замените все числа 7 на число 1 и назовите это число total2 .
 // После верните разницу между суммой цифр total1 и total2 .
 // 'ABC' --> 'A' = 65, 'B' = 66, 'C' = 67 --> 656667
 
+// const countSymbolsCode = (string) => {
+//   let total1Arr = [];
+//   for (let i = 0; i < String(string).length; i++) {
+//     let charCodeOfStringElement = String(string).charCodeAt(i);
+//     total1Arr.push(charCodeOfStringElement);
+//   }
+//   const total1 = total1Arr.join("");
+//   const total2 = total1.replaceAll("7", "1");
+//   const difference = total1 - total2;
+//   console.log(difference, "difference");
+//   return difference;
+// };
+
+// countSymbolsCode("ABCDE");
 
 
-// Задача 7.-
+// Задача 7.+
 // Дубликаты
 // Цель этого упражнения — преобразовать строку в новую строку, где каждый
 // символ в новой строке равен ( , если этот символ появляется только один раз в
@@ -233,3 +288,20 @@
 // 'Success' // => ')())())'
 // '(( @' // => '))(("'
 
+// const dublicates = (str) => {
+//   let newStr = [];
+//   for (let i = 0; i < str.length; i++) {
+//     let isDuble = str
+//       .split("")
+//       .filter((el) => el.toLowerCase() === str[i].toLowerCase());
+//     if (isDuble.length > 1) {
+//       newStr.push(")");
+//     } else {
+//       newStr.push("(");
+//     }
+//   }
+//   console.log(newStr.join(""), "formated string");
+//   return newStr.join("");
+// };
+
+// dublicates("QwertYy asdfrr");
