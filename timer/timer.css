@@ -1,0 +1,17 @@
+#timer {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid rgb(183, 183, 231);
+    border-radius: 8px;
+    background-color: rgb(179, 246, 246);
+    width: 100px;
+    text-align: center;
+}
+
+.btn{
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid black;
+    max-width: 120px;
+    width: 100%;
+}
