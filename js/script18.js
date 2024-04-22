@@ -106,22 +106,29 @@
 // Попробуйте включить ввод данных в вашу программу, например с помощью функции prompt(...) . Вы можете, например, запросить у пользователя баланс банковского счета. Развлекайтесь и будьте изобретательны
 
 
-// let cash = Number(prompt('Введите сумму денег на счёте'))
-// let nalog = 22
-// let sumTelef = 450
-// let sumAksesuarov = 70
-// let sumNalogTelef = sumTelef * nalog / 100
-// let sumNalogAksessuarov = sumAksesuarov * nalog / 100
+const formatPrice = (price) => {
+  return `${price.toFixed(2)} $`;
+};
+function sumPokupki() {
+  let balance = prompt("Введите сумму баланса", 0);
+  let nalog = prompt("Введите сумму налога", 20);
+  let priceTelef = 450;
+  let priceAksesuarov = 70;
+  let generalPrice = priceTelef + priceAksesuarov;
+  let fullPrice = 0;
 
-// function sumPokupki() {
+  while (fullPrice < balance) {
+    if ((fullPrice + generalPrice) < balance) {
+      fullPrice += generalPrice;
+    } else break;
+  }
 
-//     if (cash - (sumTelef + sumNalogTelef) < 0) {
-//         alert('Не хватает денег на счете!!!');
-//     } else if (cash - (sumTelef + sumNalogTelef + sumAksesuarov + sumNalogAksessuarov) >= 0) {
-//         alert(`Сумма покупки -`+ `${sumTelef + sumNalogTelef + sumAksesuarov + sumNalogAksessuarov}`);
-//     } else {
-//         alert('Не хватает денег на счете!!!');
-//     }
-
-// }
-// sumPokupki()
+  let fullPriceWithTax = fullPrice + fullPrice * (nalog / 100);
+  alert(formatPrice(fullPriceWithTax));
+  if (fullPriceWithTax < balance) {
+    alert("Денег хватает");
+  } else {
+    alert("Денег не хватает!! Иди работай!!");
+  }
+}
+sumPokupki();
